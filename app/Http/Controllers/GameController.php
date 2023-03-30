@@ -6,14 +6,14 @@ use App\Models\Game;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class GamesController extends Controller
+
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // return Game::all();
         return Inertia::render('Dashboard', ['items' => Game::all()]);
     }
 

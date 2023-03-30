@@ -1,16 +1,24 @@
 import React from 'react'
+import Item from './Item'
 
 function List(props) {
-  return (
-    <div>
-        {
-            console.log(items)
-            // props.items.map(item => {
-            //     <div key={item.id}>{item.name}</div>
-            // })
-        }
-    </div>
-  )
+    // console.log(props.items)
+
+    return (
+        <ul className='grid grid-cols-1 sm:grid-cols-4'>
+            {
+            props.items.map(item =>
+                <Item
+                    key={item.id}
+                    id={item.id}
+                    name={item.nombre}
+                    ean={item.ean}
+                    plataforma={item.plataforma}
+                    image={item.image}
+                />
+            )}
+        </ul>
+    )
 }
 
 export default List
