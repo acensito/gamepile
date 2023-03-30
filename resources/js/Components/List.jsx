@@ -5,7 +5,7 @@ function List(props) {
     // console.log(props.items)
 
     return (
-        <ul className='grid grid-cols-1 sm:grid-cols-4'>
+        <ul className='grid grid-cols-1 sm:grid-cols-2'>
             {
             props.items.map(item =>
                 <Item
