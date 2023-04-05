@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ean');
             $table->string('nombre');
             $table->string('plataforma');
+            $table->string('formato');
             $table->string('image');
             $table->timestamps();
         });

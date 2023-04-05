@@ -14,7 +14,9 @@ function List(props) {
                     name={item.nombre}
                     ean={item.ean}
                     plataforma={item.plataforma}
+                    formato={item.formato}
                     image={item.image}
+                    date={item.created_at}
                 />
             )}
         </ul>
