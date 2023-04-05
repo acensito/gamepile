@@ -1,12 +1,18 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import List from '@/Components/List';
+import Search from '@/Components/Search';
 
 export default function Dashboard({ auth, items }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Aqui va el buscador</h2>}
+            header={
+                <>
+                    <Search />
+                </>
+
+            }
         >
             <Head title="Dashboard" />
 
