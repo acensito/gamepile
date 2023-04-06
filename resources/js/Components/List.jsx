@@ -2,8 +2,6 @@ import React from 'react'
 import Item from './Item'
 
 function List(props) {
-    // console.log(props.items)
-
     return (
         <ul className='grid grid-cols-1 sm:grid-cols-2'>
             {

@@ -12,9 +12,12 @@ class GameController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Dashboard', ['items' => Game::all()]);
+        //dump($request);
+        $data = Game::where('nombre', 'LIKE', '%'.$request->search.'%')->get();
+        //dd($data);
+        return Inertia::render('Dashboard', ['items' => $data]);
     }
 
     /**

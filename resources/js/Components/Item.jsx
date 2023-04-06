@@ -1,5 +1,6 @@
 import React from 'react'
 import { CalendarDaysIcon } from '@heroicons/react/24/solid'
+import moment from 'moment';
 
 function Item(props) {
 
@@ -26,7 +27,7 @@ function Item(props) {
                     </div>
                 </div>
                 <div>
-                    <CalendarDaysIcon className="h-6 w-6 text-slate-600" /> {props.date}
+                    <CalendarDaysIcon className="h-6 w-6 text-slate-600" /> {moment.utc(props.date).format('DD-MM-YYYY')}
                 </div>
             </div>
         </li>
