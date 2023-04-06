@@ -18,14 +18,19 @@ function Search(props) {
     };
 
     return (
-        <form onSubmit={submit}>
+        <form onSubmit={submit} className='grid grid-cols-6 gap-1'>
             <TextInput
                 id="search"
                 name="search"
                 placeholder="Buscar juego"
                 onChange={(e) => setData('search', e.target.value)}
+                className="col-span-5"
             />
-            <PrimaryButton type="submit" disabled={processing}>Buscar</PrimaryButton>
+            <PrimaryButton
+                type="submit"
+                className='col-span-1'
+                disabled={processing}
+            >Buscar</PrimaryButton>
         </form>
     )
 }
