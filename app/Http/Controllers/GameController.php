@@ -15,7 +15,7 @@ class GameController extends Controller
     public function index(Request $request)
     {
         //dump($request);
-        $data = Game::where('nombre', 'LIKE', '%'.$request->search.'%')->get();
+        $data = Game::where('name', 'LIKE', '%'.$request->search.'%')->get();
         //dd($data);
         return Inertia::render('Dashboard', ['items' => $data]);
     }
@@ -25,7 +25,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('AddGame');
     }
 
     /**
@@ -33,7 +33,15 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'ean' =>  'max:13',
+            'platform' => 'required',
+        ]);
+
+        Game::create($request->all());
+
+        return Inertia::render('AddGame');
     }
 
     /**

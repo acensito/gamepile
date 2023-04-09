@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('ean');
-            $table->string('nombre');
-            $table->string('plataforma');
-            $table->string('formato');
-            $table->string('image');
+            $table->string('name');
+            $table->string('platform');
+            $table->string('format');
+            $table->string('image')->default('https://www.globaluniversityalliance.org/wp-content/uploads/2017/10/No-Cover-Image-01.png');
             $table->timestamps();
         });
     }

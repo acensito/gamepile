@@ -27,6 +27,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [GameController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/game/create', [GameController::class, 'create'])->middleware(['auth', 'verified'])->name('game.create');
+Route::post('/game/create', [GameController::class, 'store'])->middleware(['auth', 'verified'])->name('game.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

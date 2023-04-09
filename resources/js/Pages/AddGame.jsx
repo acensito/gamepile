@@ -1,25 +1,23 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import List from '@/Components/List';
-import Search from '@/Components/Search';
+//import Search from '@/Components/Search';
+import GameForm from '@/Components/GameForm'
 
-export default function Dashboard({ auth, items }) {
+export default function AddGame({ auth }) {
+
     return (
         <AuthenticatedLayout
             user={auth.user}
             header={
-                <>
-                    <Search />
-                </>
+                <h2>Inserte un juego nuevo en la colección:</h2>
             }
         >
-            <Head title="Dashboard" />
+            <Head title="Agregar Juego" />
 
-            <div className="py-12">
+            <div className="py-6">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white p-2 overflow-hidden shadow-sm sm:rounded-lg">
-                        {/* <div className="p-6 text-gray-900">You're logged in!</div> */}
-                        <List items={items} />
+                        <GameForm isEdit={false}/>
                     </div>
                 </div>
             </div>

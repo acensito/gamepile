@@ -5,15 +5,13 @@ import { useForm } from '@inertiajs/react'
 
 function Search(props) {
 
-    const { data, setData, get, processing } = useForm({
+    const { setData, get, processing } = useForm({
         search: ''
     });
 
     const submit = (e) => {
         e.preventDefault();
-
-        console.log(data);
-
+        // console.log(data);
         get(route('dashboard'));
     };
 

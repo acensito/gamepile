@@ -24,6 +24,9 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Listado
                                 </NavLink>
+                                <NavLink href={route('game.create')} active={route().current('game.create')}>
+                                    Agregar juego
+                                </NavLink>
                             </div>
                         </div>
 
