@@ -15,8 +15,8 @@ function List(props) {
                         id={item.id}
                         name={item.name}
                         ean={item.ean}
-                        plataforma={item.plataform}
-                        formato={item.format}
+                        platform={item.platform}
+                        format={item.format}
                         image={item.image}
                         date={item.created_at}
                     />

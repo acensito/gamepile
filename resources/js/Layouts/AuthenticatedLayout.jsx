@@ -96,9 +96,15 @@ export default function Authenticated({ user, header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                            Listado
                         </ResponsiveNavLink>
                     </div>
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink href={route('game.create')} active={route().current('game.create')}>
+                            Agregar
+                        </ResponsiveNavLink>
+                    </div>
+
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">

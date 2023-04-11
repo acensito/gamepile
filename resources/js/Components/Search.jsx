@@ -2,6 +2,7 @@ import React from 'react'
 import TextInput from './TextInput'
 import PrimaryButton from './PrimaryButton'
 import { useForm } from '@inertiajs/react'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 function Search(props) {
 
@@ -26,9 +27,13 @@ function Search(props) {
             />
             <PrimaryButton
                 type="submit"
-                className='col-span-1'
                 disabled={processing}
-            >Buscar</PrimaryButton>
+            >
+                <div className='text-center'>
+                    <MagnifyingGlassIcon className='h-6'/>
+                </div>
+
+            </PrimaryButton>
         </form>
     )
 }

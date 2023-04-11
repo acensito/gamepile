@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarDaysIcon, QrCodeIcon, GlobeAltIcon } from '@heroicons/react/24/solid'
+import { CalendarDaysIcon, QrCodeIcon } from '@heroicons/react/24/solid'
 import moment from 'moment';
 
 function Item(data) {
@@ -22,17 +22,16 @@ function Item(data) {
 
                 <div className='text-left grid grid-cols-2'>
                     <div>
-                        <img className="rounded-md" src={"/assets/platforms/"+ data.plataforma + ".png"} />
+                        <img className="rounded-md" src={"assets/platforms/"+ data.platform + ".png"} />
                     </div>
                     <div className='grid grid-cols-2 gap-1'>
-                        <GlobeAltIcon className='h-5'/>
-                        <div className='text-xs'>🌍 {data.formato}</div>
+                        <div className='text-xs'>🌍 {data.format}</div>
                     </div>
                 </div>
 
                 <div className='text-slate-600 grid grid-cols-2'>
-                    <CalendarDaysIcon className="h-6 w-6" />
-                    <div>{moment.utc(data.date).format('DD-MM-YYYY')}</div>
+                    {/* <CalendarDaysIcon className="h-6 w-6" /> */}
+                    <div>📅 {moment.utc(data.date).format('DD-MM-YYYY')}</div>
                 </div>
             </div>
         </li>

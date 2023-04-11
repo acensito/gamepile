@@ -4,14 +4,31 @@ import TextInput from './TextInput';
 import PrimaryButton from './PrimaryButton';
 import InputLabel from './InputLabel';
 import InputError from './InputError';
+import Toggle from './Toogle';
+import SelectField from './SelectField';
 
 function GameForm({ isEdit, props }) {
+
+    const options = [
+        { value: 'PS4', label: 'Playstation 4' },
+        { value: 'NSW', label: 'Nintendo Switch' },
+        { value: '3DS', label: 'Nintendo 3DS' },
+      ];
+
+    const region = [
+        { value: 'PAL-ES', label: 'PAL-ES' },
+        { value: 'PAL-FR', label: 'PAL-FR' },
+        { value: 'PAL-UK', label: 'PAL-UK' },
+        { value: 'PAL-DE', label: 'PAL-DE' },
+        { value: 'NTSC', label: 'NTSC' },
+      ];
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         ean: '',
         platform: '',
-        format: ''
+        format: '',
+        image_url: ''
     });
 
     useEffect(() => {
@@ -24,39 +41,12 @@ function GameForm({ isEdit, props }) {
         e.preventDefault();
 
         post(route('game.store'));
-        setData({ name: '', ean: '', platform: '', format: '' });
+        setData({ name: '', ean: '', platform: '', format: '', image_url: '' });
     };
-
-    // const [formData, setFormData] = useForm(props || {
-    //     name: '',
-    //     ean: '',
-    //     platform: '',
-    //     format: ''
-    // });
-
-    // useEffect(() => {
-    //     if (props) {
-    //         setFormData(props);
-    //     }
-    // });
-
-    // const handleChange = (event) => {
-    //     setFormData({ ...formData, [event.target.name]: event.target.value });
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (isEdit) {
-    //         put(route('game.'), { onSuccess: () => reset() })
-    //     } else {
-    //         post(route('game.store'), { onSuccess: () => reset() })
-    //     }
-    //     setFormData({ name: '', ean: '', platform: '', format: '' });
-    // };
 
     return (
 
-        <form onSubmit={submit}>
+        <form autoComplete="off" onSubmit={submit}>
             <div>
                 <InputLabel htmlFor="name" value="Nombre del titulo" />
 
@@ -90,13 +80,13 @@ function GameForm({ isEdit, props }) {
 
             <div className="mt-4">
                 <InputLabel htmlFor="platform" value="Plataforma" />
-
-                <TextInput
+                <SelectField
                     id="platform"
-                    type="text"
                     name="platform"
-                    value={data.platform}
                     className="mt-1 block w-full"
+                    defaultOptionTitle='Seleccione plataforma'
+                    options={options}
+                    value={data.platform}
                     onChange={(e) => setData('platform', e.target.value)}
                 />
 
@@ -104,7 +94,21 @@ function GameForm({ isEdit, props }) {
             </div>
 
             <div className="mt-4">
-                <InputLabel htmlFor="format" value="Formato" />
+                <InputLabel htmlFor="format" value="Region" />
+                <SelectField
+                    id="format"
+                    name="format"
+                    className="mt-1 block w-full"
+                    options={region}
+                    value={data.format}
+                    onChange={(e) => setData('format', e.target.value)}
+                />
+
+                <InputError message={errors.format} className="mt-2" />
+            </div>
+
+            {/* <div className="mt-4">
+                <InputLabel htmlFor="format" value="Region" />
 
                 <TextInput
                     id="format"
@@ -116,7 +120,31 @@ function GameForm({ isEdit, props }) {
                 />
 
                 <InputError message={errors.format} className="mt-2" />
+            </div> */}
+
+            <div className="mt-4">
+                <InputLabel htmlFor="image" value="Imagen" />
+
+                <TextInput
+                    id="image_url"
+                    type="text"
+                    name="image_url"
+                    value={data.image_url}
+                    placeholder='Introduzca una url de imagen valida'
+                    className="mt-1 block w-full"
+                    onChange={(e) => setData('image_url', e.target.value)}
+                />
+
+                <InputError message={errors.image} className="mt-2" />
             </div>
+
+            {/* <div className="mt-4">
+                <Toggle
+                    name="archivo"
+                >
+                    Activar subida por archivo
+                </Toggle>
+            </div> */}
 
             <div className="flex items-center justify-end mt-4">
                 <PrimaryButton className="ml-4" disabled={processing}>
@@ -125,38 +153,6 @@ function GameForm({ isEdit, props }) {
             </div>
         </form>
 
-
-        // <form>
-        //     <TextInput
-        //         type='text'
-        //         name="name"
-        //         placeholder="Titulo del juego"
-        //         value={formData.name}
-        //         onChange={handleChange}
-        //     />
-        //     <TextInput
-        //         type="text"
-        //         name="ean"
-        //         placeholder="Codigo EAN"
-        //         value={formData.ean}
-        //         onChange={handleChange}
-        //     />
-        //     <TextInput
-        //         type="text"
-        //         name="platform"
-        //         placeholder="Plataforma"
-        //         value={formData.platform}
-        //         onChange={handleChange}
-        //     />
-        //     <TextInput
-        //         type="text"
-        //         name="format"
-        //         placeholder="Formato"
-        //         value={formData.format}
-        //         onChange={handleChange}
-        //     />
-        //     <PrimaryButton onClick={handleSubmit}>Guardar</PrimaryButton>
-        // </form>
     );
 }
 
