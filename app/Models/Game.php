@@ -9,5 +9,5 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'ean', 'platform', 'format', 'image'];
+    protected $fillable = ['name', 'ean', 'platform', 'format', 'age_rate', 'image'];
 }

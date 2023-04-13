@@ -4,8 +4,7 @@ import Item from './Item'
 function List(props) {
 
     return (
-        <ul className='grid grid-cols-1 sm:grid-cols-2 gap-x-2'>
-            {/* {console.log(props)} */}
+        <ul className='grid grid-cols-1 md:grid-cols-2 gap-x-2'>
             {props.items.length === 0 ? (
                 <li className="mx-auto m-4 text-gray-900">No existen resultados con dicha búsqueda</li>
             ):(
@@ -19,6 +18,7 @@ function List(props) {
                         format={item.format}
                         image={item.image}
                         date={item.created_at}
+                        age_rate={item.age_rate}
                     />
                 )
             )}

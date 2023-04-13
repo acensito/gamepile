@@ -12,15 +12,17 @@ function GameForm({ isEdit, props }) {
     const options = [
         { value: 'PS4', label: 'Playstation 4' },
         { value: 'NSW', label: 'Nintendo Switch' },
-        { value: '3DS', label: 'Nintendo 3DS' },
+        { value: '360', label: 'Xbox 360' },
       ];
 
     const region = [
         { value: 'PAL-ES', label: 'PAL-ES' },
+        { value: 'PAL-EU', label: 'PAL-EU' },
         { value: 'PAL-FR', label: 'PAL-FR' },
         { value: 'PAL-UK', label: 'PAL-UK' },
         { value: 'PAL-DE', label: 'PAL-DE' },
-        { value: 'NTSC', label: 'NTSC' },
+        { value: 'NTSC-JAP', label: 'NTSC-JAP' },
+        { value: 'NTSC-ASIA', label: 'NTSC-ASIA' },
       ];
 
     const { data, setData, post, processing, errors, reset } = useForm({

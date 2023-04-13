@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('platform');
             $table->string('format');
+            $table->string('age_rate');
             $table->string('image')->default('https://www.globaluniversityalliance.org/wp-content/uploads/2017/10/No-Cover-Image-01.png');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
